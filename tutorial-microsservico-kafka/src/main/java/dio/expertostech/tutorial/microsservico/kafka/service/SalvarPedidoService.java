@@ -11,16 +11,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class SalvarPedidoService {
-
     @KafkaListener(topics = "SalvarPedido", groupId = "MicrosservicoSalvaPedido")
     private void executar(ConsumerRecord<String, String> record) {
-
         log.info("Chave = {}", record.key());
         log.info("Cabecalho = {}", record.headers());
         log.info("Particao = {}", record.partition());
 
         String strDados = record.value();
-
         ObjectMapper mapper = new ObjectMapper();
         PedidoData pedido;
 
@@ -32,15 +29,12 @@ public class SalvarPedidoService {
         }
 
         log.info("Evento Recebido = {}", pedido);
-
         // Gravar no banco de dados
         // Responder para a fila de que o pedido foi salvo
     }
 
+    @SuppressWarnings("unused")
     private void gravar(PedidoData pedido) {
         // Gravar no banco de dados
     }
-
-
-
 }
