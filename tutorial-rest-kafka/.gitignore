@@ -31,3 +31,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+.mvn/wrapper/
+!**.mvn/wrapper/maven-wrapper.properties
+!**.mvn/wrapper/maven-wrapper.jar
